@@ -8,13 +8,13 @@ const CodingProfileCard = () => {
             name: 'GitHub',
             icon: FaGithub,
             url: 'https://github.com/aashutosh148',
-            color: 'text-white'
+            color: 'text-black'
         },
         {
             name: 'LeetCode',
             icon: SiLeetcode,
             url: 'https://leetcode.com/aashutosh148',
-            color: 'text-[#FFA116]'
+            color: 'text-[black]'
         },
         {
             name: 'CodeChef',
