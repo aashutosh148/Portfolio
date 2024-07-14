@@ -1,15 +1,23 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const location = useLocation();
 
     const handleLinkClick = () => {
         setIsOpen(false);
     };
 
     return (
-        <nav className="bg-[#0B0C10] p-1 fixed top-0 w-full">
+        <motion.nav
+            initial={{ y: -100 }}
+            animate={{ y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="bg-[#0B0C10] p-1 fixed top-0 w-full z-50"
+        >
+
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
                     <div className="flex items-center">
@@ -20,9 +28,9 @@ const Navbar = () => {
 
                     <div className="hidden md:block">
                         <div className="ml-10 flex items-baseline space-x-4">
-                            <NavLink to="/" handleClick={handleLinkClick}>Home</NavLink>
-                            <NavLink to="/about" handleClick={handleLinkClick}>About</NavLink>
-                            <NavLink to="/projects" handleClick={handleLinkClick}>Projects</NavLink>
+                            <NavLink to="/" active={location.pathname === "/"} handleClick={handleLinkClick}>Home</NavLink>
+                            <NavLink to="/about" active={location.pathname === "/about"} handleClick={handleLinkClick}>About</NavLink>
+                            <NavLink to="/projects" active={location.pathname === "/projects"} handleClick={handleLinkClick}>Projects</NavLink>
                         </div>
                     </div>
                     <div className="md:hidden">
@@ -54,21 +62,26 @@ const Navbar = () => {
                     </div>
                 </div>
             )}
-        </nav>
+        </motion.nav>
     );
 };
-
-const NavLink = ({ to, children, mobile, handleClick }) => {
-    const baseClasses = "text-[#45a29e] hover:bg-[#1F2833] hover:text-white px-3 py-2 rounded-md text-sm font-medium";
-    const mobileClasses = mobile ? "block" : "";
-
+const NavLink = ({ to, children, active, handleClick }) => {
     return (
         <Link
             to={to}
-            className={`${baseClasses} ${mobileClasses}`}
+            className={`text-[#45a29e] hover:bg-[#1F2833] hover:text-white px-3 py-2 rounded-md text-sm font-medium relative`}
             onClick={handleClick}
         >
             {children}
+            {active && (
+                <motion.div
+                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#45a29e]"
+                    layoutId="underline"
+                    initial={false}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3 }}
+                />
+            )}
         </Link>
     );
 };

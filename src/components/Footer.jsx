@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaGithub, FaXTwitter, FaLinkedin } from 'react-icons/fa6';
-
+import { motion  } from 'framer-motion';
 const Footer = () => {
     const socialLinks = [
         { icon: FaGithub, url: 'https://github.com/aashutosh148' },
@@ -9,7 +9,14 @@ const Footer = () => {
     ];
 
     return (
-        <div className="bg-[#1d2835] text-[#C5C6C7] py-2 px-4 w-full bottom-0">
+        <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="bg-[#1d2835] text-[#C5C6C7] py-2 px-4 w-full bottom-0"
+        >
+            {/* ... existing content ... */}
+
             <div className="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center">
 
                 <div className="text-center mb-4 md:mb-0">
@@ -35,7 +42,7 @@ const Footer = () => {
                     &copy; 2024 @aashutosh148
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 };
 

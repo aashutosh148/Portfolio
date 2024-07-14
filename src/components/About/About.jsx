@@ -1,6 +1,7 @@
 import React from 'react';
-import CP from './CP.jsx'
+import CP from './CP.jsx';
 import { FaStar } from 'react-icons/fa';
+import { motion } from "framer-motion";
 
 const About = () => {
     const achievements = [
@@ -20,10 +21,21 @@ const About = () => {
     return (
         <div className="mt-[80px] md:mt-[130px] min-h-auto flex items-center mx-6 text-[#C5C6C7] p-8 ">
             <div className="max-w-6xl mx-auto">
-                <h1 className="text-5xl font-bold mb-8 text-[#66FCF1]">About Me</h1>
+                <motion.h1
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="text-5xl font-bold mb-8 text-[#66FCF1]"
+                >
+                    About Me
+                </motion.h1>
 
                 <div className="flex flex-col lg:flex-row gap-12 mb-12">
-                    <div className="lg:w-2/3">
+                    <motion.div initial={{ opacity: 0, x: -50 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                        className="lg:w-2/3"
+                    >
                         <p className="text-xl mb-6">
                             Hi!! Everyone, I am Aashutosh Singh. Aspiring Web developer.
                         </p>
@@ -38,10 +50,15 @@ const About = () => {
                                 </li>
                             ))}
                         </ul>
-                    </div>
-                    <div className="lg:w-1/3">
+                    </motion.div>
+                    <motion.div
+                        initial={{ opacity: 0, x: 50 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5, delay: 0.4 }}
+                        className="lg:w-1/3"
+                    >
                         <img src="/about.png" alt="Programming Illustration" className="w-full" />
-                    </div>
+                    </motion.div>
                 </div>
                 <CP />
                 <div className="bg-[#1f2833] rounded-lg p-6 shadow-2xl">
