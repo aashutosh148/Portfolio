@@ -1,15 +1,19 @@
-// src/components/ProjectCard.jsx
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 
 const ProjectCard = ({ title, description, image, liveLink, githubLink }) => {
     const [isHovered, setIsHovered] = useState(false);
+    const [isClicked, setIsClicked] = useState(false);
+
+    const handleCardClick = () => {
+        setIsClicked(!isClicked);
+    };
 
     return (
         <motion.div
             className="bg-[#45505a] rounded-lg shadow-lg overflow-hidden perspective-1000"
-            whileHover={{ 
+            whileHover={{
                 scale: 1.05,
                 rotateY: 5,
                 rotateX: 5,
@@ -18,6 +22,7 @@ const ProjectCard = ({ title, description, image, liveLink, githubLink }) => {
             transition={{ duration: 0.3 }}
             onHoverStart={() => setIsHovered(true)}
             onHoverEnd={() => setIsHovered(false)}
+            onClick={handleCardClick}
         >
             <div className="relative w-full h-60 p-2 overflow-hidden">
                 <motion.img
@@ -25,10 +30,10 @@ const ProjectCard = ({ title, description, image, liveLink, githubLink }) => {
                     alt={title}
                     className="w-full h-full object-cover rounded-md"
                     initial={{ scale: 1 }}
-                    animate={{ scale: isHovered ? 1.1 : 1 }}
+                    animate={{ scale: isHovered || isClicked ? 1.1 : 1 }}
                     transition={{ duration: 0.3 }}
                 />
-                {isHovered && (
+                {(isHovered || isClicked) && (
                     <motion.div
                         className="absolute inset-0 bg-black bg-opacity-80 flex items-center justify-center"
                         initial={{ opacity: 0 }}

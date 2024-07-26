@@ -1,7 +1,7 @@
 // src/components/Projects.jsx
 import React from 'react';
 import ProjectCard from './ProjectCard';
-import  { motion } from "framer-motion" 
+import { motion } from "framer-motion";
 
 const Projects = () => {
     const projects = [
@@ -11,6 +11,27 @@ const Projects = () => {
             image: "./Projects/yt-stat.png",
             liveLink: "https://playlist-length.netlify.app/",
             githubLink: "https://github.com/aashutosh148/PlayList_Stat"
+        },
+        {
+            title: "GDP-Projections",
+            description: "An interactive tool that allows users to explore and visualize future economic scenarios for countries worldwide, using GDP data and user-adjustable average growth rates.",
+            image: "./Projects/GDP.png",
+            liveLink: 'https://gdp-projections.netlify.app/',
+            githubLink: "https://github.com/aashutosh148/GDP-Projection"
+        },
+        {
+            title: "Sticky-Notes",
+            description: "This is a full-stack MERN (MongoDB, Express, React, Node.js) application that allows users to create, manage, and organize their digital sticky notes.",
+            image: "./Projects/Notes.png",
+            liveLink: 'https://sticky-notes-ash.vercel.app/',
+            githubLink: "https://github.com/aashutosh148/Sticky-Notes/"
+        },
+        {
+            title: "User-Authentication With JWT",
+            description: "User authentication using JWT, endpoints for user registration, login/logout, access to protected routes, token revocation and token expiration.",
+            image: "./Projects/jwt.png",
+            liveLink: null,
+            githubLink: "https://github.com/aashutosh148/User-auth-JWT"
         },
         {
             title: "Attendance & Vacation Panner",
@@ -25,20 +46,6 @@ const Projects = () => {
             image: "./Projects/chatServ.png",
             liveLink: null,
             githubLink: "https://github.com/aashutosh148/ChatRoom-with-auth"
-        },
-        {
-            title: "User-Authentication With JWT",
-            description: "User authentication using JWT, endpoints for user registration, login/logout, access to protected routes, token revocation and token expiration.",
-            image: "./Projects/jwt.png",
-            liveLink: null,
-            githubLink: "https://github.com/aashutosh148/User-auth-JWT"
-        },
-        {
-            title: "Headlines",
-            description: "Integrated an external API to fetch and cache realtime news headlines on a backend server. Use React on the frontend to display headlines.",
-            image: "./Projects/headlines.png",
-            liveLink: null,
-            githubLink: "https://github.com/aashutosh148/Headlines"
         }
     ];
 
