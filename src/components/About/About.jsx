@@ -6,8 +6,9 @@ import { motion } from "framer-motion";
 const About = () => {
     const achievements = [
         "Got Global rank 67 in Starters 124 DIV-3.",
-        "Achieved 3 star Rating(1672) on CodeChef Platform",
-        "Achived maximum rating of 1816 on leetcode",
+        "Achived Knight status and maximum rating of 2113 on leetcode Contests",
+        "Got global rank 440 in Leetcode's Biweekly Contest 146.",
+         "Achieved 3 star Rating(1672) on CodeChef Platform",
         "Attended More than 100 Contest across Various Platforms, Solved 800+ Problems.",
         " SSB RECOMENDED- All India Rank 226-UPSC NDA 2 2021"
     ];
